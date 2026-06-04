@@ -1,4 +1,4 @@
-# ✨ Lumina (formerly HabitFlow)
+# ✨ Lumina 
 
 Lumina is a premium, "quiet luxury" habit-tracking application designed to help users build consistency through aesthetic reinforcement. It features a beautifully animated React frontend and a robust Node.js/Express backend.
 
