@@ -1,64 +1,95 @@
 # ✨ Lumina 
 
-Lumina is a premium, "quiet luxury" habit-tracking application designed to help users build consistency through aesthetic reinforcement. It features a beautifully animated React frontend and a robust Node.js/Express backend.
+![Lumina Banner](https://via.placeholder.com/1200x400/0a0a0a/D4AF37?text=Lumina+-+Quiet+Luxury+Habit+Tracking)
 
-## 🚀 Deployment Guide
-
-This guide provides a step-by-step process for deploying the Lumina stack to production using **MongoDB Atlas** (Database), **Render** (Backend API), and **Vercel** (Frontend UI).
+Lumina (formerly HabitFlow) is a premium, "quiet luxury" habit-tracking application designed to help users build consistency through aesthetic reinforcement. Built with a focus on high-end design, cinematic animations, and lightning-fast optimistic UI updates, Lumina transforms the chore of daily tracking into a rewarding and beautiful experience.
 
 ---
 
-### Step 1: Set up MongoDB Atlas (Database)
-1. Go to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) and create a free account.
-2. Click **Build a Database** and select the **M0 Free** cluster.
-3. Choose your preferred cloud provider (AWS, Google Cloud, or Azure) and a region closest to your users. Click **Create**.
-4. **Security Setup:**
-   - Under **Database Access**, add a new database user. Create a secure username and password (save this, you will need it later).
-   - Under **Network Access**, click **Add IP Address**. Choose **Allow Access from Anywhere** (or specifically whitelist your backend server's IP later for more security).
-5. Once your cluster is provisioned, click **Connect**, select **Drivers**, and copy your connection string. 
-   - *It will look like this:* `mongodb+srv://<username>:<password>@cluster0.mongodb.net/?retryWrites=true&w=majority`
-   - Replace `<password>` with the password you just created.
+## ✨ Features
 
----
-
-### Step 2: Deploy the Backend to Render.com
-1. Create a GitHub repository and push your entire Lumina project (both `frontend` and `backend` folders) to it.
-2. Go to [Render.com](https://render.com) and sign in with GitHub.
-3. Click **New** and select **Web Service**.
-4. Connect the GitHub repository containing your Lumina project.
-5. **Configure the Web Service:**
-   - **Name:** `lumina-backend`
-   - **Root Directory:** `backend` (This is crucial so Render knows where your backend code lives).
-   - **Environment:** `Node`
-   - **Build Command:** `npm install`
-   - **Start Command:** `npm start` (Make sure your backend `package.json` has a `"start": "node server.js"` script).
-6. **Environment Variables:**
-   - Scroll down to Environment Variables and add the following:
-     - `PORT` = `5000`
-     - `MONGODB_URI` = `[Your MongoDB Atlas Connection String from Step 1]`
-     - `JWT_SECRET` = `[A long, random secure string of your choice]`
-7. Click **Create Web Service**. Render will now build and deploy your backend. 
-8. Once live, copy the URL Render gives you (e.g., `https://lumina-backend.onrender.com`). You will need this for the frontend.
-
----
-
-### Step 3: Deploy the Frontend to Vercel
-1. Go to [Vercel.com](https://vercel.com) and sign in with GitHub.
-2. Click **Add New** -> **Project**.
-3. Import the exact same GitHub repository you used for the backend.
-4. **Configure the Project:**
-   - **Project Name:** `lumina-app`
-   - **Framework Preset:** `Vite`
-   - **Root Directory:** Click Edit and select `frontend`.
-5. **Environment Variables:**
-   - Add the following variable so your frontend knows where your live backend is:
-   - `VITE_API_URL` = `https://lumina-backend.onrender.com/api` (Use the exact URL you got from Render in Step 2, ensuring it ends with `/api`).
-6. Click **Deploy**. Vercel will build the frontend and generate a live URL for your application!
-
-🎉 **Congratulations! Lumina is now live in production.**
+- **Quiet Luxury Aesthetics:** A deep obsidian and midnight background paired with champagne gold accents, designed using the principles of high-end editorial and modern glassmorphism.
+- **Cinematic Transitions:** Fully integrated with `framer-motion` for buttery smooth, Awwwards-style page transitions, staggered list entrances, and beautiful hover states.
+- **Optimistic UI:** Powered by React Query, ensuring that checking off a habit happens instantly on the frontend without waiting for server responses.
+- **Advanced Habit Tracking:** Track daily goals, maintain streaks, and monitor your consistency over time.
+- **Analytics Dashboard:** Visualize your growth with beautifully designed data cards.
+- **Personal Reflections:** A dedicated notes section to journal your progress and thoughts alongside your habits.
+- **Custom Emoji Picker:** A bespoke, animated dropdown menu replacing native browser selects for a truly premium feel.
 
 ---
 
 ## 🛠️ Tech Stack
-- **Frontend:** React, TypeScript, Vite, Tailwind CSS, Framer Motion, React Query, Lucide Icons.
-- **Backend:** Node.js, Express.js, MongoDB, Mongoose, JSON Web Tokens (JWT).
+
+### Frontend
+- **Framework:** React 18 + TypeScript + Vite
+- **Styling:** Tailwind CSS (with custom design tokens)
+- **Animations:** Framer Motion (`motion/react`)
+- **State Management & Fetching:** TanStack React Query v5
+- **Form Handling:** React Hook Form + Zod validation
+- **Routing:** React Router v6
+
+### Backend
+- **Runtime:** Node.js
+- **Framework:** Express.js
+- **Database:** MongoDB + Mongoose
+- **Authentication:** JSON Web Tokens (JWT) + bcrypt
+
+---
+
+## 🚀 Local Development Setup
+
+To run Lumina locally on your machine, follow these steps:
+
+### Prerequisites
+- Node.js (v18 or higher recommended)
+- A local MongoDB instance OR a free MongoDB Atlas connection string.
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/yourusername/lumina.git
+cd lumina
+```
+
+### 2. Set up the Backend
+```bash
+cd backend
+npm install
+```
+
+Create a `.env` file in the `/backend` directory and add the following variables:
+```env
+PORT=5000
+MONGODB_URI=mongodb://localhost:27017/lumina  # Or your MongoDB Atlas connection string
+JWT_SECRET=your_super_secret_jwt_key_here
+```
+
+Start the backend server:
+```bash
+npm run dev
+```
+*The server will start running on `http://localhost:5000`.*
+
+### 3. Set up the Frontend
+Open a new terminal window and navigate to the frontend directory:
+```bash
+cd frontend
+npm install
+```
+
+Start the Vite development server:
+```bash
+npm run dev
+```
+*The React app will start running on `http://localhost:5173`.*
+
+---
+
+## 📚 Project Architecture
+
+Curious about how the project is structured under the hood? Check out our comprehensive [PROJECT_NOTES.md](./PROJECT_NOTES.md) for a deep dive into the routing, component structure, state flow, and backend design.
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License. Feel free to fork, modify, and use it for your own personal growth!
