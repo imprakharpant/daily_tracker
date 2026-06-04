@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import api from '../api/axios';
-import { Button, Input, Card } from '../components/ui';
+import { Input, Card } from '../components/ui';
 import HabitList from '../components/HabitList';
 import DailyQuote from '../components/DailyQuote';
 import StarBorder from '../components/StarBorder';
@@ -14,7 +14,7 @@ export default function Dashboard() {
   const queryClient = useQueryClient();
   const [name, setName] = useState('');
   const [emoji, setEmoji] = useState('💧');
-  
+
   const token = localStorage.getItem('token');
   const user = JSON.parse(localStorage.getItem('user') || '{}');
 
@@ -61,20 +61,20 @@ export default function Dashboard() {
         <div className="absolute inset-0 bg-[#D4AF37] rounded-2xl opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none"></div>
         <form onSubmit={handleAdd} className="flex gap-3 relative z-10">
           <div className="relative">
-            <EmojiPicker 
-              value={emoji} 
-              onChange={setEmoji} 
-              options={['💧', '📖', '🏃', '🧘', '💻', '🎨', '🌱', '☕', '🧠', '💰', '🏋️', '🚭']} 
+            <EmojiPicker
+              value={emoji}
+              onChange={setEmoji}
+              options={['💧', '📖', '🏃', '🧘', '💻', '🎨', '🌱', '☕', '🧠', '💰', '🏋️', '🚭']}
             />
           </div>
-          
-          <Input 
-            placeholder="What habit do you want to build?" 
-            value={name} 
-            onChange={e => setName(e.target.value)} 
+
+          <Input
+            placeholder="What habit do you want to build?"
+            value={name}
+            onChange={e => setName(e.target.value)}
             className="text-lg bg-transparent border-none px-4 flex-grow placeholder:text-gray-500 focus:bg-white/5 font-light"
           />
-          
+
           <StarBorder as="button" type="submit" disabled={createHabit.isPending} color="#D4AF37" className="hover:scale-105 transition-transform flex-shrink-0">
             <Plus size={28} strokeWidth={2.5} className="text-[#D4AF37]" />
           </StarBorder>
