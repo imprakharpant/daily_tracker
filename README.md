@@ -82,7 +82,7 @@ Start the Vite development server:
 ```bash
 npm run dev
 ```
-*The React app will start running on `https://daily-tracker-8o7n.vercel.app/`.*
+*The React app will start running on `https://daily-tracker-8o7n.vercel.app`.*
 
 ---
 
