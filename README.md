@@ -1,8 +1,7 @@
 # ✨ Lumina 
 
-![Lumina Banner](https://via.placeholder.com/1200x400/0a0a0a/D4AF37?text=Lumina+-+Quiet+Luxury+Habit+Tracking)
 
-Lumina (formerly HabitFlow) is a premium, "quiet luxury" habit-tracking application designed to help users build consistency through aesthetic reinforcement. Built with a focus on high-end design, cinematic animations, and lightning-fast optimistic UI updates, Lumina transforms the chore of daily tracking into a rewarding and beautiful experience.
+Lumina  is a premium, habit-tracking application designed to help users build consistency through aesthetic reinforcement. Built with a focus on high-end design, cinematic animations, and lightning-fast optimistic UI updates, Lumina transforms the chore of daily tracking into a rewarding and beautiful experience.
 
 ---
 
@@ -83,9 +82,12 @@ Start the Vite development server:
 ```bash
 npm run dev
 ```
-*The React app will start running on `http://localhost:5173`.*
+*The React app will start running on `https://daily-tracker-8o7n.vercel.app/`.*
 
 ---
+
+*The site will start running on `http://localhost:5000`.*
+
 
 ## 📚 Project Architecture
 
