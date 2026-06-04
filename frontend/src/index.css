@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0a0a0a;
+  --color-card: rgba(255, 255, 255, 0.02);
+  --color-card-hover: rgba(255, 255, 255, 0.04);
+  --color-accent: #D4AF37;
+  --font-sans: "Outfit", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-white font-sans antialiased min-h-screen selection:bg-accent/30;
+    background-image: radial-gradient(circle at 50% 0%, #111111 0%, #0a0a0a 80%);
+    background-attachment: fixed;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
+  }
+}
+
+.glass-panel {
+  @apply bg-card backdrop-blur-2xl border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all duration-500;
+}
+
+.glass-panel:hover {
+  @apply border-white/10 shadow-[0_8px_32px_rgba(212,175,55,0.05)];
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#D4AF37];
+}
