@@ -1,7 +1,8 @@
 # ✨ Lumina 
 
+![Lumina Banner](https://via.placeholder.com/1200x400/0a0a0a/D4AF37?text=Lumina+-+Quiet+Luxury+Habit+Tracking)
 
-Lumina is a premium, habit-tracking application designed to help users build consistency through aesthetic reinforcement. Built with a focus on high-end design, cinematic animations, and lightning-fast optimistic UI updates, Lumina transforms the chore of daily tracking into a rewarding and beautiful experience.
+Lumina (formerly HabitFlow) is a premium, "quiet luxury" habit-tracking application designed to help users build consistency through aesthetic reinforcement. Built with a focus on high-end design, cinematic animations, and lightning-fast optimistic UI updates, Lumina transforms the chore of daily tracking into a rewarding and beautiful experience.
 
 ---
 
@@ -30,7 +31,7 @@ Lumina is a premium, habit-tracking application designed to help users build con
 ### Backend
 - **Runtime:** Node.js
 - **Framework:** Express.js
-- **Database:** MongoDB + Mongoose
+- **Database:** Firebase Realtime Database (using Admin SDK)
 - **Authentication:** JSON Web Tokens (JWT) + bcrypt
 
 ---
@@ -41,7 +42,8 @@ To run Lumina locally on your machine, follow these steps:
 
 ### Prerequisites
 - Node.js (v18 or higher recommended)
-- A local MongoDB instance OR a free MongoDB Atlas connection string.
+- A Firebase project with **Realtime Database** enabled (Singapore `asia-southeast1` region recommended)
+- A Firebase Service Account private key JSON file
 
 ### 1. Clone the repository
 ```bash
@@ -55,11 +57,13 @@ cd backend
 npm install
 ```
 
-Create a `.env` file in the `/backend` directory and add the following variables:
+1. Generate a **Service Account Private Key** JSON file from the Firebase Console (Project Settings -> Service Accounts).
+2. Save this JSON file inside the `backend/` folder and name it exactly **`serviceAccountKey.json`**.
+3. Create a `.env` file in the `/backend` directory and add the following variables:
 ```env
 PORT=5000
-MONGODB_URI=mongodb://localhost:27017/lumina  # Or your MongoDB Atlas connection string
 JWT_SECRET=your_super_secret_jwt_key_here
+FIREBASE_DATABASE_URL=https://your-project-id-default-rtdb.asia-southeast1.firebasedatabase.app
 ```
 
 Start the backend server:

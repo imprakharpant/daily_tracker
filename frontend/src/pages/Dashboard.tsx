@@ -57,7 +57,7 @@ export default function Dashboard() {
 
       <DailyQuote />
 
-      <Card className="mb-10 p-2 sm:p-3 relative overflow-visible border-white/5 bg-[#111] backdrop-blur-2xl group transition-all duration-300 hover:border-white/10">
+      <Card className="mb-10 p-2 sm:p-3 relative z-30 overflow-visible border-white/5 bg-[#111] backdrop-blur-2xl group transition-all duration-300 hover:border-white/10">
         <div className="absolute inset-0 bg-[#D4AF37] rounded-2xl opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none"></div>
         <form onSubmit={handleAdd} className="flex gap-3 relative z-10">
           <div className="relative">
