@@ -1,7 +1,7 @@
 # ✨ Lumina 
 
 
-Lumina is a premium, "quiet luxury" habit-tracking application designed to help users build consistency through aesthetic reinforcement. Built with a focus on high-end design, cinematic animations, and lightning-fast optimistic UI updates, Lumina transforms the chore of daily tracking into a rewarding and beautiful experience.
+Lumina is a premium, habit-tracking application designed to help users build consistency through aesthetic reinforcement. Built with a focus on high-end design, cinematic animations, and lightning-fast optimistic UI updates, Lumina transforms the chore of daily tracking into a rewarding and beautiful experience.
 
 ---
 
